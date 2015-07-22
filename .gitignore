@@ -1,0 +1,8 @@
+/vendor
+/node_modules
+composer.lock
+Homestead.yaml
+.env
+.idea
+.vagrant
+.DS_Store
