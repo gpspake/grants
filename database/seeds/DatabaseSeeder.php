@@ -14,8 +14,18 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call(UserTableSeeder::class);
+        $this->call('GrantTableSeeder');
 
         Model::reguard();
+    }
+}
+
+class GrantTableSeeder extends Seeder
+{
+    public function run()
+    {
+        App\Grant::truncate();
+
+        factory(App\Grant::class, 20)->create();
     }
 }

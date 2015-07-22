@@ -19,3 +19,20 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Grant::class, function ($faker) {
+    return [
+        'title' => $faker->sentence(mt_rand(3, 10)),
+        'maker' => $faker->word(),
+        'maker_website' => $faker->url(),
+        'program' => $faker->word(),
+        'program_website' => $faker->url(),
+        'description' => join("\n\n", $faker->paragraphs(mt_rand(3, 6))),
+        'maximum_award' => mt_rand(2,5) * 100000000 / (mt_getrandmax() / 100000000),
+        'letter_of_intent_deadline' => $faker->dateTimeBetween('-9 months', '+9 months'),
+        'limited_submission_deadline' => $faker->dateTimeBetween('-9 months', '+9 months'),
+        'status_open' => $faker->boolean(75),
+        'published_at' => $faker->dateTimeBetween('-1 month', '+3 days')
+    ];
+});
+
