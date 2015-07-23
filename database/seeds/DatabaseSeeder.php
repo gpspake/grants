@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         $this->call('GrantTableSeeder');
+        $this->call('TagTableSeeder');
 
         Model::reguard();
     }
@@ -27,5 +28,15 @@ class GrantTableSeeder extends Seeder
         App\Grant::truncate();
 
         factory(App\Grant::class, 20)->create();
+    }
+}
+
+class TagTableSeeder extends Seeder
+{
+    public function run()
+    {
+        App\Tag::truncate();
+
+        factory(App\Tag::class, 10)->create();
     }
 }

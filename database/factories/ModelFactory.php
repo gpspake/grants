@@ -36,3 +36,13 @@ $factory->define(App\Grant::class, function ($faker) {
     ];
 });
 
+$factory->define(App\Tag::class, function ($faker) {
+    return [
+        'tag' => $faker->word(),
+        'title' => $faker->word(),
+        'subtitle' => implode( ' ', $faker->words(3) ),
+        'meta_description' => $faker->sentence(mt_rand(3,5)),
+        'layout' => 'grant.layouts.index',
+        'reverse_direction' => $faker->boolean(25)
+    ];
+});
