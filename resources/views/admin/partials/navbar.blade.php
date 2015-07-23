@@ -2,7 +2,7 @@
     <li><a href="/">Blog Home</a></li>
     @if (Auth::check())
         <li @if (Request::is('admin/grant*')) class="active" @endif>
-            <a href="/admin/post">Posts</a>
+            <a href="/admin/grant">Grants</a>
         </li>
         <li @if (Request::is('admin/tag*')) class="active" @endif>
             <a href="/admin/tag">Tags</a>
