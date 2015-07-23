@@ -1,8 +1,14 @@
 /vendor
 /node_modules
+/resources/assets/less/bootstrap
+/resources/assets/less/fontawesome
+/resources/assets/less/others
+/resources/assets/js
+/public/assets
 composer.lock
 Homestead.yaml
 .env
 .idea
 .vagrant
 .DS_Store
+
