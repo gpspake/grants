@@ -25,7 +25,6 @@
                         <th>Tag</th>
                         <th>Title</th>
                         <th class="hidden-sm">Subtitle</th>
-                        <th class="hidden-md">Page Image</th>
                         <th class="hidden-md">Meta Description</th>
                         <th class="hidden-md">Layout</th>
                         <th class="hidden-sm">Direction</th>
