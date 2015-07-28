@@ -11,23 +11,23 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\User::class, function ($faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
-        'password' => bcrypt(str_random(10)),
+        'name' => 'John Smith',
+        'email' => 'john@smith.com',
+        'password' => bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
 });
 
 $factory->define(App\Grant::class, function ($faker) {
     return [
-        'title' => $faker->sentence(mt_rand(3, 10)),
+        'title' => implode( ' ', $faker->words(mt_rand(3, 5)) ),
         'maker' => $faker->word(),
         'maker_website' => $faker->url(),
         'program' => $faker->word(),
         'program_website' => $faker->url(),
-        'description' => join("\n\n", $faker->paragraphs(mt_rand(3, 6))),
+        'description_raw' => join("\n\n", $faker->paragraphs(mt_rand(3, 6))),
         'maximum_award' => mt_rand(2,5) * 100000000 / (mt_getrandmax() / 100000000),
         'letter_of_intent_deadline' => $faker->dateTimeBetween('-9 months', '+9 months'),
         'limited_submission_deadline' => $faker->dateTimeBetween('-9 months', '+9 months'),
@@ -38,7 +38,7 @@ $factory->define(App\Grant::class, function ($faker) {
 
 $factory->define(App\Tag::class, function ($faker) {
     return [
-        'tag' => $faker->word(),
+        'tag' => $faker->unique()->word(),
         'title' => $faker->word(),
         'subtitle' => implode( ' ', $faker->words(3) ),
         'meta_description' => $faker->sentence(mt_rand(3,5)),

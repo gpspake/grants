@@ -14,10 +14,21 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
+        $this->call('UserTableSeeder');
         $this->call('GrantTableSeeder');
         $this->call('TagTableSeeder');
 
         Model::reguard();
+    }
+}
+
+class UserTableSeeder extends Seeder
+{
+    public function run()
+    {
+        App\User::truncate();
+
+        factory(App\User::class, 1)->create();
     }
 }
 
