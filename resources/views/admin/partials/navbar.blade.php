@@ -1,5 +1,5 @@
 <ul class="nav navbar-nav">
-    <li><a href="/">Blog Home</a></li>
+    <li><a href="/">Grants Home</a></li>
     @if (Auth::check())
         <li @if (Request::is('admin/grant*')) class="active" @endif>
             <a href="/admin/grant">Grants</a>
