@@ -15,7 +15,7 @@ $router->group([
     'namespace' => 'Admin',
     'middleware' => 'auth',
 ], function () {
-    resource('admin/grant', 'GrantController');
+    resource('admin/grant', 'GrantController', ['except' => 'show']);
     resource('admin/tag', 'TagController');
     get('admin/upload', 'UploadController@index');
 });
