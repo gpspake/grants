@@ -22,9 +22,9 @@ class CreateGrantsTable extends Migration
             $table->string('program');
             $table->string('program_website');
             $table->text('description');
-            $table->decimal('maximum_award',10,2)->index();
+            $table->decimal('maximum_award',20,2)->index();
             $table->dateTime('letter_of_intent_deadline')->index();
-            $table->dateTime('limited_submission_deadline');
+            $table->dateTime('limited_submission_deadline')->index();
             $table->boolean('status_open');
             $table->timestamp('published_at')->index();
         });
