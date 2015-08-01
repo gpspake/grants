@@ -17,7 +17,7 @@ class RestructureGrantsTable extends Migration
             $table->string('meta_description')->after('description_html');
             $table->boolean('is_draft')->after('meta_description');
             $table->string('layout')->after('is_draft')
-                ->default('grants.layouts.post');
+                ->default('grants.layouts.grant');
         });
     }
 
