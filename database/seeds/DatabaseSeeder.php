@@ -46,10 +46,10 @@ class GrantTableSeeder extends Seeder
         // Don't forget to truncate the pivot table
         DB::table('grant_tag_pivot')->truncate();
 
-        factory(Grant::class, 20)->create()->each(function ($grant) use ($tags) {
+        factory(Grant::class, 50)->create()->each(function ($grant) use ($tags) {
 
-            // 30% of the time don't assign a tag
-            if (mt_rand(1, 100) <= 30) {
+            // 20% of the time don't assign a tag
+            if (mt_rand(1, 100) <= 20) {
                 return;
             }
 
