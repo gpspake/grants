@@ -10,7 +10,7 @@ class Tag extends Model
     ];
 
     /**
-     * The many-to-many relationship between tags and posts.
+     * The many-to-many relationship between tags and grants.
      *
      * @return BelongsToMany
      */
@@ -42,5 +42,20 @@ class Tag extends Model
                 'reverse_direction' => false,
             ]);
         }
+    }
+
+    /**
+     * Return the index layout to use for a tag
+     *
+     * @param string $tag
+     * @param string $default
+     * @return string
+     */
+    public static function layout($tag, $default = 'grants.layouts.index')
+    {
+
+        $layout = static::whereTag($tag)->pluck('layout');
+
+        return $layout ?: $default;
     }
 }
