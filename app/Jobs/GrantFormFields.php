@@ -54,6 +54,7 @@ class GrantFormFields extends Job implements SelfHandling
     public function __construct($id = null)
     {
         $this->id = $id;
+
     }
 
     /**
@@ -63,14 +64,16 @@ class GrantFormFields extends Job implements SelfHandling
      */
     public function handle()
     {
+
         $fields = $this->fieldList;
 
-        if (! $this->id) {
+        if ($this->id) {
+            $fields = $this->fieldsFromModel($this->id, $fields);
+        } else {
             $when = Carbon::now()->addHour();
             $fields['publish_date'] = $when->format('M-j-Y');
             $fields['publish_time'] = $when->format('g:i A');
         }
-        $fields = $this->fieldsFromModel($this->id, $fields);
 
         $letter_of_intent_deadline = new Carbon( $fields['letter_of_intent_deadline'] );
         $limited_submission_deadline = new Carbon( $fields['limited_submission_deadline'] );
@@ -84,10 +87,12 @@ class GrantFormFields extends Job implements SelfHandling
         foreach ($fields as $fieldName => $fieldValue) {
             $fields[$fieldName] = old($fieldName, $fieldValue);
         }
+
         return array_merge(
             $fields,
             ['allTags' => Tag::lists('tag')->all()]
         );
+
     }
 
     /**
