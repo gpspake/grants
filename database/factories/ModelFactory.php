@@ -23,6 +23,7 @@ $factory->define(App\User::class, function ($faker) {
 $factory->define(App\Grant::class, function ($faker) {
     return [
         'title' => implode( ' ', $faker->words(mt_rand(3, 5)) ),
+        'subtitle' => implode( ' ', $faker->words(mt_rand(5, 7)) ),
         'maker' => $faker->word(),
         'maker_website' => $faker->url(),
         'program' => $faker->word(),
@@ -32,7 +33,8 @@ $factory->define(App\Grant::class, function ($faker) {
         'letter_of_intent_deadline' => $faker->dateTimeBetween('-9 months', '+9 months'),
         'limited_submission_deadline' => $faker->dateTimeBetween('-9 months', '+9 months'),
         'status_open' => $faker->boolean(75),
-        'published_at' => $faker->dateTimeBetween('-1 month', '+3 days')
+        'published_at' => $faker->dateTimeBetween('-1 month', '+3 days'),
+        'is_draft' => false
     ];
 });
 
