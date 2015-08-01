@@ -75,10 +75,16 @@ elixir(function(mix) {
             'js/jquery.dataTables.js',
             'js/dataTables.bootstrap.js'
         ],
-        'public/assets/js/admin.js',
-        'resources/assets'
-    );
+        'public/assets/js/admin.js', 'resources//assets');
 
-    // Compile Less
+    // Combine grants scripts
+    mix.scripts([
+        'js/jquery.js',
+        'js/bootstrap.js',
+        'js/grants.js'
+    ], 'public/assets/js/grants.js', 'resources//assets');
+
+    // Compile CSS
     mix.less('admin.less', 'public/assets/css/admin.css');
+    mix.less('grants.less', 'public/assets/css/grants.css');
 });
