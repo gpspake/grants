@@ -1,5 +1,5 @@
 <ul class="nav navbar-nav">
-    <li><a href="/">Grants Home</a></li>
+    <li><a href="/">Home</a></li>
     @if (Auth::check())
         <li @if (Request::is('admin/grant*')) class="active" @endif>
             <a href="/admin/grant">Grants</a>
@@ -7,9 +7,9 @@
         <li @if (Request::is('admin/tag*')) class="active" @endif>
             <a href="/admin/tag">Tags</a>
         </li>
-        <li @if (Request::is('admin/upload*')) class="active" @endif>
-            <a href="/admin/upload">Uploads</a>
-        </li>
+        {{--<li @if (Request::is('admin/upload*')) class="active" @endif>--}}
+            {{--<a href="/admin/upload">Uploads</a>--}}
+        {{--</li>--}}
     @endif
 </ul>
 
