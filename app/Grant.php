@@ -3,6 +3,7 @@ namespace App;
 
 use App\Services\Markdowner;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Grant extends Model
 {
@@ -123,4 +124,79 @@ class Grant extends Model
         return $this->description_raw;
     }
 
+    /**
+     * Return URL to grant
+     *
+     * @param Tag $tag
+     * @return string
+     */
+    public function url(Tag $tag = null)
+    {
+        $url = url('grants/'.$this->slug);
+        if ($tag) {
+            $url .= '?tag='.urlencode($tag->tag);
+        }
+
+        return $url;
+    }
+
+    /**
+     * Return array of tag links
+     *
+     * @param string $base
+     * @return array
+     */
+    public function tagLinks($base = '/grants?tag=%TAG%')
+    {
+        $tags = $this->tags()->lists('tag');
+        $return = [];
+        foreach ($tags as $tag) {
+            $url = str_replace('%TAG%', urlencode($tag), $base);
+            $return[] = '<a href="'.$url.'">'.e($tag).'</a>';
+        }
+        return $return;
+    }
+
+    /**
+     * Return next grant after this one or null
+     *
+     * @param Tag $tag
+     * @return Post
+     */
+    public function newerPost(Tag $tag = null)
+    {
+        $query =
+            static::where('published_at', '>', $this->published_at)
+                ->where('published_at', '<=', Carbon::now())
+                ->where('is_draft', 0)
+                ->orderBy('published_at', 'asc');
+        if ($tag) {
+            $query = $query->whereHas('tags', function ($q) use ($tag) {
+                $q->where('tag', '=', $tag->tag);
+            });
+        }
+
+        return $query->first();
+    }
+
+    /**
+     * Return older grant before this one or null
+     *
+     * @param Tag $tag
+     * @return Post
+     */
+    public function olderPost(Tag $tag = null)
+    {
+        $query =
+            static::where('published_at', '<', $this->published_at)
+                ->where('is_draft', 0)
+                ->orderBy('published_at', 'desc');
+        if ($tag) {
+            $query = $query->whereHas('tags', function ($q) use ($tag) {
+                $q->where('tag', '=', $tag->tag);
+            });
+        }
+
+        return $query->first();
+    }
 }
