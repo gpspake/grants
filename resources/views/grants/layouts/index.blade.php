@@ -102,3 +102,13 @@
         </div>
     </div>
 @stop
+
+@section('scripts')
+    <script>
+        $(function() {
+            $("#grants-table").DataTable({
+                order: [[0, "desc"]]
+            });
+        });
+    </script>
+@stop
