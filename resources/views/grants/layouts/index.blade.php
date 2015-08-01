@@ -79,22 +79,22 @@
                             </li>
                         @endif
                     @else
-                        @if ($grants->currentPage() > 1)
-                            <li class="previous">
-                                <a href="{!! $grants->url($grants->currentPage() - 1) !!}">
-                                    <i class="fa fa-long-arrow-left fa-lg"></i>
-                                    Newer {{ $tag ? $tag->tag : '' }} Posts
-                                </a>
-                            </li>
-                        @endif
-                        @if ($grants->hasMorePages())
-                            <li class="next">
-                                <a href="{!! $grants->nextPageUrl() !!}">
-                                    Older {{ $tag ? $tag->tag : '' }} Posts
-                                    <i class="fa fa-long-arrow-right"></i>
-                                </a>
-                            </li>
-                        @endif
+                        {{--@if ($grants->currentPage() > 1)--}}
+                            {{--<li class="previous">--}}
+                                {{--<a href="{!! $grants->url($grants->currentPage() - 1) !!}">--}}
+                                    {{--<i class="fa fa-long-arrow-left fa-lg"></i>--}}
+                                    {{--Newer {{ $tag ? $tag->tag : '' }} Posts--}}
+                                {{--</a>--}}
+                            {{--</li>--}}
+                        {{--@endif--}}
+                        {{--@if ($grants->hasMorePages())--}}
+                            {{--<li class="next">--}}
+                                {{--<a href="{!! $grants->nextPageUrl() !!}">--}}
+                                    {{--Older {{ $tag ? $tag->tag : '' }} Posts--}}
+                                    {{--<i class="fa fa-long-arrow-right"></i>--}}
+                                {{--</a>--}}
+                            {{--</li>--}}
+                        {{--@endif--}}
                     @endif
                 </ul>
             </div>
