@@ -43,16 +43,17 @@ class GrantsIndexData extends Job implements SelfHandling
     protected function normalIndexData()
     {
         $grants = Grant::with('tags')
-            ->where('published_at', '<=', Carbon::now())
+            //->where('published_at', '<=', Carbon::now())
             ->where('is_draft', 0)
             ->orderBy('published_at', 'desc')
-            ->simplePaginate(config('grants.grants_per_page'));
+            //->simplePaginate(config('grants.grants_per_page'));
+            ->get();
+
 
         return [
             'title' => config('grants.title'),
             'subtitle' => config('grants.subtitle'),
             'grants' => $grants,
-            'page_image' => config('grants.page_image'),
             'meta_description' => config('grants.description'),
             'reverse_direction' => false,
             'tag' => null,
