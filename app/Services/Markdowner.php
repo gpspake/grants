@@ -11,14 +11,14 @@ class Markdowner
         $text = $this->preTransformText($text);
         $text = MarkdownExtra::defaultTransform($text);
         $text = SmartyPants::defaultTransform($text);
-        $text = $this->postTransformText($text);
+        $text = $this->grantTransformText($text);
         return $text;
     }
     protected function preTransformText($text)
     {
         return $text;
     }
-    protected function postTransformText($text)
+    protected function grantTransformText($text)
     {
         return $text;
     }
