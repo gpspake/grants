@@ -29,6 +29,7 @@ class GrantController extends Controller
      */
     public function create()
     {
+
         $data = $this->dispatch(new GrantFormFields());
 
         return view('admin.grant.create', $data);
@@ -48,17 +49,6 @@ class GrantController extends Controller
         return redirect()
             ->route('admin.grant.index')
             ->withSuccess('New Grant Successfully Entered.');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
