@@ -41,10 +41,10 @@
                             <td>{!! get_link($grant->maker_website, $grant->maker) !!}</td>
                             <td>{!! get_link($grant->program_website, $grant->program) !!}</td>
                             <td data-order="{{ $grant->letter_of_intent_deadline }}">
-                                {{ $grant->letter_of_intent_deadline }}
+                                {{ date('F d, Y', strtotime( $grant->letter_of_intent_deadline )) }}
                             </td>
-                            <td data-order="{{ $grant->published_at }}">
-                                {{ $grant->published_at }}
+                            <td data-order="{{ $grant->limited_submission_deadline }}">
+                                {{ date('F d, Y', strtotime( $grant->limited_submission_deadline)) }}
                             </td>
                             <td>
                                 {{ get_status($grant->status_open, 'Open', 'Closed') }}
