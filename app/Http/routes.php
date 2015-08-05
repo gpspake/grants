@@ -11,6 +11,7 @@ get('grants/{slug}', 'GrantController@showGrant');
 get('admin', function () {
     return redirect('/admin/grant');
 });
+
 $router->group([
     'namespace' => 'Admin',
     'middleware' => 'auth',
@@ -27,4 +28,11 @@ get('/auth/logout', 'Auth\AuthController@getLogout');
 
 get('phpinfo', function () {
     phpinfo();
+});
+
+$router->group([
+    'prefix' => 'api/v1',
+    'namespace' => 'Api',
+], function () {
+    resource('grants', 'GrantController');
 });
