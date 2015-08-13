@@ -25,8 +25,6 @@ class GrantTransformer extends Transformer {
             'limited_submission_deadline' => $grant['limited_submission_deadline'],
             'status_open' => (boolean) $grant['status_open'],
             'published_at' => $grant['published_at'],
-
         ];
-
     }
 }
