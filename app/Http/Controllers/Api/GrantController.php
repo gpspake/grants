@@ -2,11 +2,11 @@
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use App\Grant;
 use Api\Transformers\GrantTransformer;
+use Illuminate\Support\Facades\Input;
 
-class GrantController extends Controller
+class GrantController extends ApiController
 {
     /**
      * @var GrantTransformer
@@ -16,6 +16,8 @@ class GrantController extends Controller
     function __construct(GrantTransformer $grantTransformer)
     {
         $this->grantTransformer = $grantTransformer;
+
+        $this->beforeFilter('auth.basic', ['on' => 'post']);
     }
 
     /**
@@ -30,7 +32,7 @@ class GrantController extends Controller
 
         return response()->json([
             'data' => $this->grantTransformer->transformCollection($grants->all())
-        ],200);
+        ], 200);
     }
 
     /**
@@ -51,7 +53,13 @@ class GrantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd('store');
+        if ( ! Input::get('title') )
+        {
+            return $this->respondWithError('Parameters failed validation for a lesson');
+        }
+
+        Grant::create()
     }
 
     /**
@@ -65,18 +73,13 @@ class GrantController extends Controller
         $grant = Grant::find($id);
 
         if ( ! $grant )
-
         {
-            return response()->json([
-                'error' => [
-                    'message' => 'Lesson does not exist',
-                ]
-            ], 404);
+            return $this->respondNotFound('Grant does not exist');
         }
 
-        return response()->json([
+        return $this->respond([
             'data' => $this->grantTransformer->transform($grant)
-        ], 200);
+        ]);
     }
 
     /**
