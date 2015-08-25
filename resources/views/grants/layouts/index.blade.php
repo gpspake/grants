@@ -13,6 +13,7 @@
                 </div>
             </div>
         </div>
+
     </header>
 @stop
 
@@ -34,6 +35,16 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <ul class="nav nav-pills">
+                        <ul class="nav nav-pills">
+                            @foreach ($tags as $tag)
+                                <li role="presentation"
+                                        {!! $request->input('tag') == $tag->tag ? 'class="active"' : '' !!}
+
+                                        ><a href="/grants/?tag={{ $tag->tag }}">{{ $tag->tag }}</a></li>
+                            @endforeach
+                        </ul>
+                    </ul>
                     @foreach ($grants as $grant)
 
                         <tr>
@@ -110,5 +121,20 @@
                 order: [[0, "desc"]]
             });
         });
+    </script>
+
+    <script>
+        $(function() {
+            var availableTags = [
+                @foreach ($tags as $tag)
+                    "{{ $tag->tag }}",
+                @endforeach
+            ];
+            $( "#tags" ).autocomplete({
+                lookup: availableTags
+            });
+        });
+
+
     </script>
 @stop
