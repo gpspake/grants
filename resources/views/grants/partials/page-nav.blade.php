@@ -23,6 +23,12 @@
                     <a href="/admin">Admin</a>
                 </li>
             </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+
+                @include('grants.partials.search')
+
+            </ul>
         </div>
     </div>
 </nav>

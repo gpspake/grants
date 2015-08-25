@@ -12,11 +12,18 @@ class GrantController extends Controller
     public function index(Request $request)
     {
 
+        $query = $request->get('q');
+
         $tag = $request->get('tag');
+
+        $tags = Tag::all(array('tag','title'));
 
         $data = $this->dispatch(new GrantsIndexData($tag));
 
-        return view('grants.layouts.index', $data);
+        return view('grants.layouts.index', $data)
+            ->withTags($tags)
+            ->withRequest($request);
+
     }
 
     public function showGrant($slug, Request $request)
