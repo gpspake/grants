@@ -59,7 +59,7 @@ class GrantController extends ApiController
             return $this->respondWithError('Parameters failed validation for a lesson');
         }
 
-        Grant::create()
+        Grant::create();
     }
 
     /**
