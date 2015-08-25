@@ -61,6 +61,10 @@ gulp.task("copyfiles", function() {
     gulp.src("vendor/bower_dl/pickadate/lib/compressed/picker.time.js")
         .pipe(gulp.dest("public/assets/pickadate/"));
 
+    //copy autocomplete
+    gulp.src("vendor/bower_dl/devbridge-autocomplete/dist/jquery.autocomplete.js")
+        .pipe(gulp.dest("resources/assets/js"));
+
 });
 
 /**
@@ -82,8 +86,10 @@ elixir(function(mix) {
         'js/jquery.js',
         'js/bootstrap.js',
         'js/jquery.dataTables.js',
+        'js/jquery.autocomplete.js',
         'js/dataTables.bootstrap.js',
-        'js/grants.js'
+        'js/grants.js',
+        'js/'
     ], 'public/assets/js/grants.js', 'resources//assets');
 
     // Compile CSS
