@@ -1,6 +1,6 @@
 {
   "name": "Grants",
-  "description": "CFR Grants",
+  "description": "Grants",
   "ignore": [
     "**/.*",
     "node_modules",
