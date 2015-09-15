@@ -20,6 +20,17 @@ $factory->define(App\User::class, function ($faker) {
     ];
 });
 
+$factory->define(App\Tag::class, function ($faker) {
+    return [
+        'tag' => $faker->unique()->word(),
+        'title' => $faker->word(),
+        'subtitle' => implode( ' ', $faker->words(3) ),
+        'meta_description' => $faker->sentence(mt_rand(3,5)),
+        'layout' => 'grant.layouts.index',
+        'reverse_direction' => $faker->boolean(25)
+    ];
+});
+
 $factory->define(App\Grant::class, function ($faker) {
     return [
         'title' => implode( ' ', $faker->words(mt_rand(3, 5)) ),
@@ -35,16 +46,5 @@ $factory->define(App\Grant::class, function ($faker) {
         'status_open' => $faker->boolean(75),
         'published_at' => $faker->dateTimeBetween('-1 month', '+3 days'),
         'is_draft' => false
-    ];
-});
-
-$factory->define(App\Tag::class, function ($faker) {
-    return [
-        'tag' => $faker->unique()->word(),
-        'title' => $faker->word(),
-        'subtitle' => implode( ' ', $faker->words(3) ),
-        'meta_description' => $faker->sentence(mt_rand(3,5)),
-        'layout' => 'grant.layouts.index',
-        'reverse_direction' => $faker->boolean(25)
     ];
 });
