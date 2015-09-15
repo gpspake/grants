@@ -7,18 +7,17 @@ get('/', function () {
 get('grants', 'GrantController@index');
 get('grants/{slug}', 'GrantController@showGrant');
 
-// Admin area
-get('admin', function () {
-    return redirect('/admin/grant');
-});
-
 $router->group([
     'namespace' => 'Admin',
-    'middleware' => 'auth',
+    'middleware' => 'casauth',
+    'prefix' => 'admin'
 ], function () {
-    resource('admin/grant', 'GrantController', ['except' => 'show']);
-    resource('admin/tag', 'TagController');
-    get('admin/upload', 'UploadController@index');
+    get('/', function () {
+        return redirect('/admin/grant');
+    });
+    resource('grant', 'GrantController', ['except' => 'show']);
+    resource('tag', 'TagController');
+    get('upload', 'UploadController@index');
 });
 
 // Logging in and out
