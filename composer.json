@@ -11,7 +11,7 @@
         "michelf/php-smartypants": "1.6.0-beta1",
         "laravel/homestead": "~2.1",
         "doctrine/dbal": "~2.5",
-        "illuminate/html": "5.*"
+        "laravelcollective/html": "5.1.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
