@@ -145,6 +145,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Xavrsl\Cas\CasServiceProvider::class,
     ],
 
     /*
@@ -194,6 +195,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Html'      => Illuminate\Html\HtmlFacade::class,
         'Form'      => Illuminate\Html\FormFacade::class,
+        'Cas'       => Xavrsl\Cas\Facades\Cas::class
     ],
 
 ];
