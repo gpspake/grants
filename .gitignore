@@ -11,4 +11,4 @@ Homestead.yaml
 .idea
 .vagrant
 .DS_Store
-
+cacerts_auth.pem
