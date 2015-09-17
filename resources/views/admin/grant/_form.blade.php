@@ -203,7 +203,7 @@
                 <div class="checkbox">
 
                     <div class="col-md-8">
-                        {!! Form::checkbox('is_draft', checked($is_draft)) !!}
+                        {!! Form::checkbox('is_draft',1, checked($is_draft)) !!}
 
                         {!! Form::label('is_draft', 'Draft?') !!}
                     </div>
