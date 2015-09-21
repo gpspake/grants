@@ -1,64 +1,64 @@
 <div class="form-group">
-    <label for="title" class="col-md-3 control-label">
-        Title
-    </label>
+    {!! Form::label('title', 'Title', array('class' => 'col-md-3 control-label')) !!}
+
     <div class="col-md-8">
-        <input type="text" class="form-control" name="title"
-               id="title" value="{{ $title }}">
+        {!! Form::text('title', $title, array(
+            'id' => 'title',
+            'class' => 'form-control'
+        )) !!}
     </div>
 </div>
 
 <div class="form-group">
-    <label for="subtitle" class="col-md-3 control-label">
-        Subtitle
-    </label>
+    {!! Form::label('subtitle', 'Subtitle', array('class' => 'col-md-3 control-label')) !!}
+
     <div class="col-md-8">
-        <input type="text" class="form-control" name="subtitle"
-               id="subtitle" value="{{ $subtitle }}">
+        {!! Form::text('subtitle', $subtitle, array(
+            'id' => 'subtitle',
+            'class' => 'form-control'
+        )) !!}
     </div>
 </div>
 
 <div class="form-group">
-    <label for="meta_description" class="col-md-3 control-label">
-        Meta Description
-    </label>
+    {!! Form::label('meta_description', 'Meta Description', array('class' => 'col-md-3 control-label')) !!}
+
     <div class="col-md-8">
-    <textarea class="form-control" id="meta_description"
-              name="meta_description" rows="3">{{
-      $meta_description
-    }}</textarea>
+        {!! Form::textarea('meta_description', $meta_description, array(
+            'id' => 'meta_description',
+            'class' => 'form-control',
+            'rows' => '3'
+        )) !!}
     </div>
 </div>
 
 <div class="form-group">
-    <label for="layout" class="col-md-3 control-label">
-        Layout
-    </label>
+    {!! Form::label('meta_description', 'Layout', array('class' => 'col-md-3 control-label')) !!}
+
     <div class="col-md-4">
-        <input type="text" class="form-control" name="layout" id="layout"
-               value="{{ $layout }}">
+        {!! Form::text('layout', $layout, array(
+            'id' => 'layout',
+            'class' => 'form-control'
+        )) !!}
     </div>
 </div>
 
 <div class="form-group">
-    <label for="reverse_direction" class="col-md-3 control-label">
-        Direction
-    </label>
+    {!! Form::label('reverse_direction', 'Direction', array('class' => 'col-md-3 control-label')) !!}
+
     <div class="col-md-7">
         <label class="radio-inline">
-            <input type="radio" name="reverse_direction"
-                   id="reverse_direction"
-            @if (! $reverse_direction)
-                   checked="checked"
-                   @endif
-                   value="0"> Normal
+            {!! Form::radio('reverse_direction', '0', ! $reverse_direction, array(
+                'id' => 'reverse_direction'
+            )) !!}
+
+            Normal
         </label>
+
         <label class="radio-inline">
-            <input type="radio" name="reverse_direction"
-            @if ($reverse_direction)
-                   checked="checked"
-                   @endif
-                   value="1"> Reversed
+            {!! Form::radio('reverse_direction', '1', $reverse_direction) !!}
+
+            Reversed
         </label>
     </div>
 </div>

@@ -30,9 +30,9 @@
                         @include('admin.partials.success')
 
                         {!! Form::open(array(
-                        'url' => route('admin.grant.update', $id),
-                        'method' => 'put',
-                        'class' => 'form-horizontal'))
+                            'url' => route('admin.grant.update', $id),
+                            'method' => 'put',
+                            'class' => 'form-horizontal'))
                         !!}
 
                         @include('admin.grant._form')
@@ -78,19 +78,18 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-
                         {!! Form::button('x', array( 'class' => 'close', 'data-dismiss' => 'modal' )) !!}
                         <h4 class="modal-title">Please Confirm</h4>
-
                     </div>
+
                     <div class="modal-body">
                         <p class="lead">
                             <i class="fa fa-question-circle fa-lg"></i>
                             Are you sure you want to delete this grant?
                         </p>
                     </div>
-                    <div class="modal-footer">
 
+                    <div class="modal-footer">
                         {!! Form::open(array(
                             'url' => route('admin.grant.destroy', $id),
                             'method' => 'delete'
@@ -107,7 +106,6 @@
                         )) !!}
 
                         {!! Form::close() !!}
-
                     </div>
                 </div>
             </div>
