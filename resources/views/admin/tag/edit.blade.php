@@ -19,14 +19,15 @@
                         @include('admin.partials.errors')
                         @include('admin.partials.success')
 
-                        <form class="form-horizontal" role="form" method="POST"
-                              action="/admin/tag/{{ $id }}">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" name="_method" value="PUT">
-                            <input type="hidden" name="id" value="{{ $id }}">
+                        {!! Form::open(array(
+                        'url' => route('admin.tag.update', $id),
+                        'method' => 'put',
+                        'class' => 'form-horizontal'))
+                        !!}
 
                             <div class="form-group">
-                                <label for="tag" class="col-md-3 control-label">Tag</label>
+                                {!! Form::label('tag', 'Tag', array('class' => 'col-md-3 control-label')) !!}
+
                                 <div class="col-md-3">
                                     <p class="form-control-static">{{ $tag }}</p>
                                 </div>
@@ -36,19 +37,22 @@
 
                             <div class="form-group">
                                 <div class="col-md-7 col-md-offset-3">
-                                    <button type="submit" class="btn btn-primary btn-md">
-                                        <i class="fa fa-save"></i>
-                                        Save Changes
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-md"
-                                            data-toggle="modal" data-target="#modal-delete">
-                                        <i class="fa fa-times-circle"></i>
-                                        Delete
-                                    </button>
+                                    {!! Form::button('<span class="fa fa-save"></span> Save Changes', array(
+                                        'class' => 'btn btn-primary btn-md',
+                                        'type' => 'submit'
+                                    )) !!}
+
+                                    {!! Form::button('<span class="fa fa-times-circle"></span> Delete', array(
+                                        'class' => 'btn btn-danger btn-md',
+                                        'value' => 'continue',
+                                        'data-target' => '#modal-delete',
+                                        'data-toggle' => 'modal',
+                                        'type' => 'button'
+                                    )) !!}
                                 </div>
                             </div>
 
-                        </form>
+                        {!! Form::close() !!}
 
                     </div>
                 </div>
@@ -61,30 +65,36 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                        ×
-                    </button>
+                    {!! Form::button('x', array( 'class' => 'close', 'data-dismiss' => 'modal' )) !!}
                     <h4 class="modal-title">Please Confirm</h4>
                 </div>
+
                 <div class="modal-body">
                     <p class="lead">
                         <i class="fa fa-question-circle fa-lg"></i>
                         Are you sure you want to delete this tag?
                     </p>
                 </div>
+
                 <div class="modal-footer">
-                    <form method="POST" action="/admin/tag/{{ $id }}">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button type="button" class="btn btn-default"
-                                data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-danger">
-                            <i class="fa fa-times-circle"></i> Yes
-                        </button>
-                    </form>
+                    {!! Form::open(array(
+                        'url' => route('admin.grant.destroy', $id),
+                        'method' => 'delete'
+                    )) !!}
+
+                    {!! Form::button('Close', array(
+                        'class' => 'btn btn-default',
+                        'data-dismiss' => 'modal'
+                    )) !!}
+
+                    {!! Form::button('<span class="fa fa-times-circle"></span> Yes', array(
+                        'class' => 'btn btn-danger',
+                        'type' => 'submit'
+                    )) !!}
+
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>
     </div>
-
 @stop

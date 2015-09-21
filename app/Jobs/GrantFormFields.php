@@ -88,11 +88,13 @@ class GrantFormFields extends Job implements SelfHandling
             $fields[$fieldName] = old($fieldName, $fieldValue);
         }
 
+        $tags = Tag::lists('tag')->all();
+        $allTags = array_combine($tags, $tags);
+
         return array_merge(
             $fields,
-            ['allTags' => Tag::lists('tag')->all()]
+            ['allTags' => $allTags]
         );
-
     }
 
     /**

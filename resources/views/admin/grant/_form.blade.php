@@ -1,126 +1,155 @@
 <div class="row">
     <div class="col-md-8">
         <div class="form-group">
-            <label for="title" class="col-md-2 control-label">
-                Title
-            </label>
+            {!! Form::label('title', 'Title', array(
+                'class' => 'col-md-2 control-label'
+            )) !!}
+
             <div class="col-md-10">
-                <input type="text" class="form-control" name="title" autofocus
-                       id="title" value="{{ $title }}">
+                {!! Form::text('title', $title, array(
+                    'id' => 'title',
+                    'class' => 'form-control',
+                    'autofocus' => ''
+                )) !!}
             </div>
         </div>
+
         <div class="form-group">
-            <label for="subtitle" class="col-md-2 control-label">
-                Subtitle
-            </label>
+            {!! Form::label('subtitle', 'Subtitle', array(
+                'class' => 'col-md-2 control-label'
+            )) !!}
+
             <div class="col-md-10">
-                <input type="text" class="form-control" name="subtitle"
-                       id="subtitle" value="{{ $subtitle }}">
+                {!! Form::text('subtitle', $subtitle, array(
+                    'id' => 'subtitle',
+                    'class' => 'form-control'
+                )) !!}
             </div>
         </div>
 
         <hr>
 
         <div class="form-group">
+            {!! Form::label('limited_submission_deadline_date', 'Limited Submission Deadline Date', array(
+                'class' => 'col-md-2 control-label'
+            )) !!}
 
-            <label for="limited_submission_deadline_date" class="col-md-2 control-label">
-                Limited Submission Deadline Date
-            </label>
             <div class="col-md-4">
-                <input type="text" class="form-control" name="limited_submission_deadline_date"
-                       id="limited_submission_deadline_date" value="{{ $limited_submission_deadline_date }}">
+                {!! Form::text('limited_submission_deadline_date', $limited_submission_deadline_date, array(
+                    'id' => 'limited_submission_deadline_date',
+                    'class' => 'form-control'
+                )) !!}
             </div>
 
-            <label for="limited_submission_deadline_time" class="col-md-2 control-label">
-                Limited Submission Deadline Date Time
-            </label>
+            {!! Form::label('limited_submission_deadline_time', 'Limited Submission Deadline Date Time', array(
+                'class' => 'col-md-2 control-label'
+            )) !!}
+
             <div class="col-md-4">
-                <input type="text" class="form-control" name="limited_submission_deadline_time"
-                       id="limited_submission_deadline_time" value="{{ $limited_submission_deadline_time }}">
+                {!! Form::text('limited_submission_deadline_time', $limited_submission_deadline_time, array(
+                    'id' => 'limited_submission_deadline_time',
+                    'class' => 'form-control'
+                )) !!}
             </div>
         </div>
 
         <hr>
 
         <div class="form-group">
+            {!! Form::label('letter_of_intent_deadline_date', 'Letter of Intent Deadline Date', array(
+                'class' => 'col-md-2 control-label'
+            )) !!}
 
-            <label for="letter_of_intent_deadline_date" class="col-md-2 control-label">
-                Letter of Intent Deadline Date
-            </label>
             <div class="col-md-4">
-                <input type="text" class="form-control" name="letter_of_intent_deadline_date"
-                       id="letter_of_intent_deadline_date" value="{{ $letter_of_intent_deadline_date }}">
+                {!! Form::text('letter_of_intent_deadline_date', $letter_of_intent_deadline_date, array(
+                    'id' => 'letter_of_intent_deadline_date',
+                    'class' => 'form-control'
+                )) !!}
             </div>
 
-            <label for="limited_submission_deadline_time" class="col-md-2 control-label">
-                Letter of Intent Deadline Date Time
-            </label>
+            {!! Form::label('limited_submission_deadline_time', 'Letter of Intent Deadline Time', array(
+                'class' => 'col-md-2 control-label'
+            )) !!}
+
             <div class="col-md-4">
-                <input type="text" class="form-control" name="letter_of_intent_deadline_time"
-                       id="letter_of_intent_deadline_time" value="{{ $letter_of_intent_deadline_time }}">
+                {!! Form::text('letter_of_intent_deadline_time', $letter_of_intent_deadline_time, array(
+                    'id' => 'letter_of_intent_deadline_time',
+                    'class' => 'form-control'
+                )) !!}
             </div>
         </div>
 
         <hr>
 
         <div class="form-group">
-            <label for="maker" class="col-md-2 control-label">
-                Maker
-            </label>
-            <div class="col-md-10">
-                <input type="text" class="form-control" name="maker"
-                       id="maker" value="{{ $maker }}">
-            </div>
+            {!! Form::label('maker', 'Maker', array(
+                'class' => 'col-md-2 control-label'
+            )) !!}
 
+            <div class="col-md-10">
+                {!! Form::text('maker', $maker, array(
+                    'id' => 'maker',
+                    'class' => 'form-control'
+                )) !!}
+            </div>
         </div>
 
         <div class="form-group">
-            <label for="maker_website" class="col-md-2 control-label">
-                Maker Website
-            </label>
-            <div class="col-md-10">
-                <input type="text" class="form-control" name="maker_website"
-                       id="maker_website" value="{{ $maker_website }}">
-            </div>
+            {!! Form::label('maker_website', 'Maker Website', array(
+                'class' => 'col-md-2 control-label'
+            )) !!}
 
+            <div class="col-md-10">
+                {!! Form::text('maker_website', $maker_website, array(
+                    'id' => 'maker_website',
+                    'class' => 'form-control'
+                )) !!}
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="form-group">
+            {!! Form::label('program', 'Program', array(
+                'class' => 'col-md-2 control-label'
+            )) !!}
+
+            <div class="col-md-10">
+                {!! Form::text('program', $program, array(
+                    'id' => 'program',
+                    'class' => 'form-control'
+                )) !!}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('program_website', 'Program', array(
+                'class' => 'col-md-2 control-label'
+            )) !!}
+
+            <div class="col-md-10">
+                {!! Form::text('program_website', $program_website, array(
+                    'id' => 'program_website',
+                    'class' => 'form-control'
+                )) !!}
+            </div>
         </div>
 
         <hr>
 
         <div class="form-group">
-            <label for="program" class="col-md-2 control-label">
-                Program
-            </label>
-            <div class="col-md-10">
-                <input type="text" class="form-control" name="program"
-                       id="program" value="{{ $program }}">
-            </div>
+            {!! Form::label('maximum_award', 'Maximum Award', array(
+                'class' => 'col-md-2 control-label'
+            )) !!}
 
-        </div>
-
-        <div class="form-group">
-            <label for="program_website" class="col-md-2 control-label">
-                Program Website
-            </label>
-            <div class="col-md-10">
-                <input type="text" class="form-control" name="program_website"
-                       id="program_website" value="{{ $program_website }}">
-            </div>
-
-        </div>
-
-        <hr>
-
-
-        <div class="form-group">
-            <label for="maximum_award" class="col-md-2 control-label">
-                Maximum Award
-            </label>
             <div class="col-md-10">
                 <div class="input-group">
                     <div class="input-group-addon">$</div>
-                    <input class="form-control" name="maximum_award" rows="14"
-                           id="maximum_award" value="{{ $maximum_award }}" />
+                    {!! Form::text('maximum_award', $maximum_award, array(
+                        'id' => 'program_website',
+                        'class' => 'form-control',
+                        'rows' => '14'
+                    )) !!}
                 </div>
             </div>
         </div>
@@ -128,78 +157,93 @@
         <hr>
 
         <div class="form-group">
-            <label for="description" class="col-md-2 control-label">
-                Description
-            </label>
+            {!! Form::label('description', 'Description', array(
+                'class' => 'col-md-2 control-label'
+            )) !!}
+
             <div class="col-md-10">
-        <textarea class="form-control" name="description" rows="14"
-                  id="description">{{ $description }}</textarea>
+            {!! Form::textarea('description', $description, array(
+                'id' => 'description',
+                'class' => 'form-control',
+                'rows' => '14'
+            )) !!}
             </div>
         </div>
     </div>
+
     <div class="col-md-4">
         <div class="form-group">
-            <label for="publish_date" class="col-md-3 control-label">
-                Pub Date
-            </label>
+            {!! Form::label('publish_date', 'Pub Date', array(
+                'class' => 'col-md-3 control-label'
+            )) !!}
+
             <div class="col-md-8">
-                <input class="form-control" name="publish_date" id="publish_date"
-                       type="text" value="{{ $publish_date }}">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="publish_time" class="col-md-3 control-label">
-                Pub Time
-            </label>
-            <div class="col-md-8">
-                <input class="form-control" name="publish_time" id="publish_time"
-                       type="text" value="{{ $publish_time }}">
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-8 col-md-offset-3">
-                <div class="checkbox">
-                    <label>
-                        <input {{ checked($is_draft) }} type="checkbox" name="is_draft">
-                        Draft?
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="tags" class="col-md-3 control-label">
-                Tags
-            </label>
-            <div class="col-md-8">
-                <select name="tags[]" id="tags" class="form-control" multiple>
-                    @foreach ($allTags as $tag)
-                        <option @if (in_array($tag, $tags)) selected @endif
-                        value="{{ $tag }}">
-                            {{ $tag }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="layout" class="col-md-3 control-label">
-                Layout
-            </label>
-            <div class="col-md-8">
-                <input type="text" class="form-control" name="layout"
-                       id="layout" value="{{ $layout }}">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="meta_description" class="col-md-3 control-label">
-                Meta
-            </label>
-            <div class="col-md-8">
-        <textarea class="form-control" name="meta_description"
-                  id="meta_description"
-                  rows="6">{{ $meta_description }}</textarea>
+                {!! Form::text('publish_date', $publish_date, array(
+                    'id' => 'publish_date',
+                    'class' => 'form-control'
+                )) !!}
             </div>
         </div>
 
+        <div class="form-group">
+            {!! Form::label('publish_time', 'Pub Time', array(
+                'class' => 'col-md-3 control-label'
+            )) !!}
+
+            <div class="col-md-8">
+                {!! Form::text('publish_time', $publish_time, array(
+                    'id' => 'publish_time',
+                    'class' => 'form-control'
+                )) !!}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-8 col-md-offset-3">
+                <div class="checkbox">
+
+                    <div class="col-md-8">
+                        {!! Form::checkbox('is_draft',1, checked($is_draft)) !!}
+
+                        {!! Form::label('is_draft', 'Draft?') !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('tags', 'Tags', array('class' => 'col-md-3 control-label')) !!}
+
+            <div class="col-md-8">
+                {!! Form::select('tags[]', $allTags, $tags, [
+                    'class' => 'form-control',
+                    'id' => 'tags',
+                    'multiple' => ''
+                ]) !!}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('layout', 'Layout', array('class' => 'col-md-3 control-label')) !!}
+
+            <div class="col-md-8">
+                {!! Form::text('layout', $layout, array(
+                    'class' => 'form-control',
+                    'id' => 'layout'
+                )) !!}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('meta_description', 'Meta', array('class' => 'col-md-3 control-label')) !!}
+
+            <div class="col-md-8">
+                {!! Form::textarea('meta_description', $meta_description, array(
+                    'class' => 'form-control',
+                    'id' => 'meta_description',
+                    'rows' => '6'
+                )) !!}
+            </div>
+        </div>
     </div>
 </div>

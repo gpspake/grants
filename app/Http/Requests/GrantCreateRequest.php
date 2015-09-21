@@ -49,7 +49,6 @@ class GrantCreateRequest extends Request
             $this->limited_submission_deadline_date.' '.$this->limited_submission_deadline_time
         );
 
-        var_dump($this->get('description'));
         return [
             'title' => $this->title,
             'subtitle' => $this->subtitle,
