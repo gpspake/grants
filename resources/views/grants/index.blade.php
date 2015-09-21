@@ -9,7 +9,6 @@
     <h1>{{ config('grants.title') }}</h1>
     <h5>Page {{ $grants->currentPage() }} of {{ $grants->lastPage() }}</h5>
     <hr>
-
     <div class="container-fluid">
         <div class="row page-title-row">
             <div class="col-md-6">
@@ -24,7 +23,6 @@
 
         <div class="row">
             <div class="col-sm-12">
-
                 <table id="grants-table" class="table table-striped table-bordered">
                     <thead>
                     <tr>
@@ -39,7 +37,6 @@
                     </thead>
                     <tbody>
                     @foreach ($grants as $grant)
-
                         <tr>
                             <td><a href="/grants/{{ $grant->slug }}">{{ $grant->title }}</a></td>
                             <td>{!! get_link($grant->maker_website, $grant->maker) !!}</td>
@@ -56,14 +53,12 @@
                             <td>
                                 {{ get_money( $grant->maximum_award, '$') }}
                             </td>
-
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-
     </div>
     @section('scripts')
         <script>
