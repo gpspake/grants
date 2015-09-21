@@ -122,6 +122,9 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tag = Tag::findOrFail($id);
+        $tag->delete();
+        return redirect('/admin/tag')
+            ->withSuccess("The '$tag->tag' tag has been deleted.");
     }
 }

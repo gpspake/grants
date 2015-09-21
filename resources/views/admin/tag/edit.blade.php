@@ -78,7 +78,7 @@
 
                 <div class="modal-footer">
                     {!! Form::open(array(
-                        'url' => route('admin.grant.destroy', $id),
+                        'url' => route('admin.tag.destroy', $id),
                         'method' => 'delete'
                     )) !!}
 
