@@ -8,6 +8,6 @@ class UserTableSeeder extends Seeder
     {
         App\User::truncate();
 
-        factory(App\User::class, 1)->create();
+        factory(App\User::class, 10)->create();
     }
 }
