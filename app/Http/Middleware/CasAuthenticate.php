@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Xavrsl\Cas\Facades\Cas;
+use App\User;
+use App\Http\Controllers\Admin\UserController;
 
 class CASAuthenticate
 {
@@ -36,6 +38,14 @@ class CASAuthenticate
     {
         Cas::authenticate();
 
+        $this->save_new_user(Cas::getAttributes());
+
         return $next($request);
+    }
+
+    function save_new_user($newuser)
+    {
+        $user = new UserController();
+        $user->create_new_user($newuser);
     }
 }
