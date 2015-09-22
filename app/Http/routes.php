@@ -15,6 +15,7 @@ $router->group([
     get('/', function () {
         return redirect('/admin/grant');
     });
+    resource('user', 'UserController', ['except' => 'show']);
     resource('grant', 'GrantController', ['except' => 'show']);
     resource('tag', 'TagController');
     get('upload', 'UploadController@index');
