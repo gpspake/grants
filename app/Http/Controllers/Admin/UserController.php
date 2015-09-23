@@ -120,4 +120,9 @@ class UserController extends Controller
     {
         //
     }
+
+    public function logout()
+    {
+        Cas::logout(array('service'=>'http://test.com'));
+    }
 }
