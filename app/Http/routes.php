@@ -7,6 +7,14 @@ get('/', function () {
 get('grants', 'GrantController@index');
 get('grants/{slug}', 'GrantController@showGrant');
 
+// Logging in and out
+get('login', function () {
+    return redirect('admin');
+});
+get('logout', function () {
+    return redirect('admin/logout');
+});
+
 $router->group([
     'namespace' => 'Admin',
     'middleware' => 'casauth',
@@ -19,12 +27,8 @@ $router->group([
     resource('grant', 'GrantController', ['except' => 'show']);
     resource('tag', 'TagController');
     get('upload', 'UploadController@index');
+    get('logout', 'UserController@logout');
 });
-
-// Logging in and out
-get('/auth/login', 'Auth\AuthController@getLogin');
-post('/auth/login', 'Auth\AuthController@postLogin');
-get('/auth/logout', 'Auth\AuthController@getLogout');
 
 get('phpinfo', function () {
     phpinfo();
