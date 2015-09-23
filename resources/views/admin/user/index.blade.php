@@ -41,7 +41,7 @@
                             <td class="hidden-md">{{ $user->last_name }}</td>
                             <td class="hidden-md">{{ $user->display_name }}</td>
                             <td>
-                                <a href="/admin/tag/{{ $user->id }}/edit"
+                                <a href="/admin/user/{{ $user->id }}/edit"
                                    class="btn btn-xs btn-info">
                                     <i class="fa fa-edit"></i> Edit
                                 </a>
