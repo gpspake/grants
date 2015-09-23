@@ -7,7 +7,7 @@
         <a href="/admin/tag">Tags</a>
     </li>
     <li @if (Request::is('admin/user*')) class="active" @endif>
-        <a href="/admin/user">User</a>
+        <a href="/admin/user">Users</a>
     </li>
 </ul>
 
