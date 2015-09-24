@@ -14,9 +14,9 @@ class RestructureUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->renameColumn('name', 'netid');
-            $table->string('first_name')->after('name');
-            $table->string('last_name')->after('first_name');
-            $table->string('display_name')->after('last_name');
+            $table->string('first_name')->after('name')->nullable();
+            $table->string('last_name')->after('first_name')->nullable();
+            $table->string('display_name')->after('last_name')->nullable();
             $table->dropColumn('password');
         });
     }

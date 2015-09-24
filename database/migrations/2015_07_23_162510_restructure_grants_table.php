@@ -11,11 +11,11 @@ class RestructureGrantsTable extends Migration
     public function up()
     {
         Schema::table('grants', function (Blueprint $table) {
-            $table->string('subtitle')->after('title');
+            $table->string('subtitle')->after('title')->nullable();
             $table->renameColumn('description', 'description_raw');
-            $table->text('description_html')->after('description');
-            $table->string('meta_description')->after('description_html');
-            $table->boolean('is_draft')->after('meta_description');
+            $table->text('description_html')->after('description')->nullable();
+            $table->string('meta_description')->after('description_html')->nullable();
+            $table->boolean('is_draft')->after('meta_description')->nullable();
             $table->string('layout')->after('is_draft')
                 ->default('grants.layouts.grant');
         });
