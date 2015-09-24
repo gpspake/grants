@@ -12,10 +12,15 @@
 */
 
 $factory->define(App\User::class, function ($faker) {
+    $firstname = ucfirst($faker->unique()->word());
+    $lastname = ucfirst($faker->unique()->word());
+    $netid = strtolower($firstname[0] . $lastname);
     return [
-        'name' => 'John Smith',
-        'email' => 'john@smith.com',
-        'password' => bcrypt('secret'),
+        'netid' => $netid,
+        'email' => $netid . '@uthsc.edu',
+        'first_name' => $firstname,
+        'last_name' => $lastname,
+        'display_name' => $firstname . ' ' . $lastname,
         'remember_token' => str_random(10),
     ];
 });
