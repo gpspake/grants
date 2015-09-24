@@ -3,13 +3,8 @@
 @section('content')
     <div class="container-fluid">
         <div class="row page-title-row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <h3>Users <small>» Listing</small></h3>
-            </div>
-            <div class="col-md-6 text-right">
-                <a href="/admin/tag/create" class="btn btn-success btn-md">
-                    <i class="fa fa-plus-circle"></i> New User
-                </a>
             </div>
         </div>
 
