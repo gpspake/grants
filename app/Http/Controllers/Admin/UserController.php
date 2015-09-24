@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Xavrsl\Cas\Facades\Cas;
+use App\Http\Requests\UserUpdateRequest;
 
 class UserController extends Controller
 {
@@ -34,6 +36,7 @@ class UserController extends Controller
      */
     public function create($user)
     {
+
         $firstname = ( is_array($user['firstname']) ? $user['firstname'][1] : $user['firstname'] );
 
         $newuser = new User;
@@ -43,7 +46,6 @@ class UserController extends Controller
         $newuser->last_name = $user['lastname'];
         $newuser->email = $user['email'];
         $newuser->display_name = $firstname . ' ' . $user['lastname'];
-
         $newuser->save();
     }
 
@@ -95,7 +97,14 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $data = ['id' => $id];
+        foreach (array_keys($this->fields) as $field) {
+            $data[$field] = old($field, $user->$field);
+        }
+
+        return view('admin.user.edit', $data);
     }
 
     /**
@@ -107,7 +116,17 @@ class UserController extends Controller
      */
     public function update(UserUpdateRequest $request, $id)
     {
-        //
+
+        $user = User::findOrFail($id);
+
+        foreach (array_keys(array_except($this->fields, ['netid'])) as $field) {
+            $user->$field = $request->get($field);
+        }
+
+        $user->save();
+
+        return redirect("/admin/user/$id/edit")
+            ->withSuccess("Changes saved.");
     }
 
     /**
@@ -118,7 +137,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect('/admin/user')
+            ->withSuccess("The '$user->netid' user has been deleted.");
     }
 
     public function logout()
