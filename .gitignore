@@ -4,7 +4,6 @@
 /resources/assets/less/fontawesome
 /resources/assets/less/others
 /resources/assets/js
-/public/assets
 composer.lock
 Homestead.yaml
 .env
