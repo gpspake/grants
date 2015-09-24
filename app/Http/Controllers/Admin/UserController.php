@@ -34,18 +34,21 @@ class UserController extends Controller
      *
      * @param $user
      */
-    public function create($user)
+    public function create(Array $user)
     {
-
-        $firstname = ( is_array($user['firstname']) ? $user['firstname'][1] : $user['firstname'] );
-
         $newuser = new User;
 
         $newuser->netid = $user['uid'];
-        $newuser->first_name = $firstname;
-        $newuser->last_name = $user['lastname'];
-        $newuser->email = $user['email'];
-        $newuser->display_name = $firstname . ' ' . $user['lastname'];
+
+        if (count($user) > 1) {
+            $firstname = ( is_array($user['firstname']) ? $user['firstname'][1] : $user['firstname'] );
+
+            $newuser->first_name = $firstname;
+            $newuser->last_name = $user['lastname'];
+            $newuser->email = $user['email'];
+            $newuser->display_name = $firstname . ' ' . $user['lastname'];
+        }
+
         $newuser->save();
     }
 
@@ -116,7 +119,6 @@ class UserController extends Controller
      */
     public function update(UserUpdateRequest $request, $id)
     {
-
         $user = User::findOrFail($id);
 
         foreach (array_keys(array_except($this->fields, ['netid'])) as $field) {
