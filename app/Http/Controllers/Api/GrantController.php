@@ -53,7 +53,6 @@ class GrantController extends ApiController
      */
     public function store(Request $request)
     {
-        //dd('store');
         if ( ! Input::get('title') )
         {
             return $this->respondWithError('Parameters failed validation for a lesson');
