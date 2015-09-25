@@ -11,3 +11,4 @@ Homestead.yaml
 .vagrant
 .DS_Store
 cacerts_auth.pem
+Envoy.blade.php
