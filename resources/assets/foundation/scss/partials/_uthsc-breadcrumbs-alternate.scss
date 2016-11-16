@@ -1,0 +1,39 @@
+#breadcrumbs {
+  .uthsc-home-icon-breadcrumbs {
+    margin-bottom: -3px;
+    position: relative;
+    top: 4px;
+    margin-left: -17px;
+  }
+  ol {
+    list-style: none;
+    margin: 0 0 0.4em 0;
+    font-size: 0.9em;
+    li{
+      display: inline;
+      a {
+        color: #BBBBBB;
+        &:not(.current):not(.home-icon):hover {
+          color: $white;
+        }
+        &.home-icon:hover {
+          color: $uthsc-bg-double-hover;
+          text-shadow: 2px 1px 1px $light-oil;
+        }
+      }
+      &:after {
+        content: '\f054';
+        font-family: fontawesome;
+        color: #BBBBBB;
+        margin: 0 1em 0 1.3em;
+      }
+      &:last-child:after {
+        content: ''
+      }
+    }
+  }
+  //background-color: $silver;
+  background-color: scale-color($primary-color, $lightness: -10%);
+
+
+}

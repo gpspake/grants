@@ -3,6 +3,58 @@ var rename = require('gulp-rename');
 var elixir = require('laravel-elixir');
 
 /**
+ * Copy UTHSC Foundation files
+ */
+gulp.task("copyuthsc", function() {
+
+    //copy uthsc scss to resources
+    gulp.src("vendor/bower_dl/uthsc/scss/**")
+        .pipe(gulp.dest("resources/assets/foundation/scss/"));
+
+    //copy uthsc js to resources
+    gulp.src("vendor/bower_dl/uthsc/js/src/**")
+        .pipe(gulp.dest("resources/assets/foundation/js/"));
+
+    //copy images to public
+    gulp.src("vendor/bower_dl/uthsc/images/**")
+        .pipe(gulp.dest("public/assets/foundation/images/"));
+
+
+
+
+
+
+    // Copy datatables
+    var dtDir = 'vendor/bower_dl/datatables-plugins/integration/';
+
+    gulp.src("vendor/bower_dl/datatables/media/js/jquery.dataTables.js")
+        .pipe(gulp.dest('resources/assets/foundation/js/'));
+
+    gulp.src(dtDir + 'foundation/dataTables.foundation.css')
+        .pipe(rename('dataTables.foundation.scss'))
+        .pipe(gulp.dest('resources/assets/foundation/scss/others/'));
+
+    gulp.src(dtDir + 'foundation/dataTables.bootstrap.js')
+        .pipe(gulp.dest('resources/assets/js/'));
+
+
+
+
+
+    gulp.src("vendor/bower_dl/fontawesome/less/**")
+        .pipe(gulp.dest("resources/assets/less/fontawesome"));
+
+    gulp.src("vendor/bower_dl/fontawesome/fonts/**")
+        .pipe(gulp.dest("public/assets/fonts"));
+
+
+
+
+
+
+});
+
+/**
  * Copy any needed files.
  *
  * Do a 'gulp copyfiles' after bower updates
@@ -86,11 +138,7 @@ elixir(function(mix) {
         'js/jquery.js',
         'js/bootstrap.js',
         'js/jquery.dataTables.js',
-        'js/jquery.autocomplete.js',
-        'js/dataTables.bootstrap.js',
-        'js/grants.js',
-        'js/'
-    ], 'public/assets/js/grants.js', 'resources//assets');
+        'js/jquery.autocomplete.js',e    ], 'public/assets/js/grants.js', 'resources//assets');
 
     // Compile CSS
     mix.less('admin.less', 'public/assets/css/admin.css');

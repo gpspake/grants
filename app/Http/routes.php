@@ -40,3 +40,7 @@ $router->group([
 ], function () {
     resource('grants', 'GrantController');
 });
+
+get('foundation', function () {
+    return view('foundation.layouts.index');
+});

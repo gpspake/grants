@@ -1,0 +1,340 @@
+// From http://callmenick.com/2014/03/26/slide-and-push-menus-with-css3-transitions/
+#wrapper {
+  position: relative;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+section {
+  margin-bottom: 30px
+}
+
+section.toggle {
+  text-align: center
+}
+
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.pmr-open {
+  #wrapper {
+    position: fixed;
+    width: 100%;
+  }
+  .offcanvas-nav.push-menu-right {
+    position: absolute;
+  }
+}
+
+.pml-open {
+  #wrapper {
+    position: fixed;
+    width: 100%;
+  }
+  .offcanvas-nav.push-menu-left {
+    position: absolute;
+  }
+}
+#fb-root > nav > ul > li:not(.not-a-link) > a {
+  font-size: inherit;
+  padding: 0;
+  font-weight: inherit;
+}
+.offcanvas-nav {
+
+  &.menu {
+    position: fixed;
+    z-index: 20;
+    background-color: lighten($oil, 5%);
+    overflow: auto;
+    overflow-x: hidden;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    min-height: 100%;
+
+    ul > li > ul {
+      background-color: lighten($oil, 10%);
+      li:first-of-type {
+        border-top: solid 1px $jet;
+      }
+      a, li .not-a-link {
+        padding-left: 30px;
+        font-size: 1em;
+      }
+    }
+
+    .uthsc-split-button {
+      width: 86%;
+      font-size: 0.75em;
+      padding: 10px 0;
+      margin: 0;
+      height: 44px;
+      position: absolute;
+      right: 0;
+      z-index: 1000;
+    }
+
+    .mission-links {
+      padding: 8px;
+      /*background-color: $uthsc-green;*/
+      background-color: $uthsc-grey-dark;
+      h2 {
+        color: $white;
+        text-align: center;
+        border: 2px solid $light-jet;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom: none;
+        margin-bottom: -9px;
+        padding: 5px 0 15px 0;
+        background-color: $oil;
+      }
+    }
+
+    .button, {
+
+      &.inverse {
+        background-color: $gainsboro;
+        color: $uthsc-green;
+        border-bottom: 1px solid $base;
+        text-align: left;
+        font-weight: bold;
+        margin-bottom: 0;
+
+        .fa {
+          padding: 0 14px 0 8px;
+          width: 44px;
+        }
+
+        &:nth-child(even) {
+          background: $smoke;
+        }
+        &:last-of-type {
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+        }
+      }
+
+      &.menu {
+        margin: 0;
+        padding: 0 0 0 17px;
+
+        .fa {
+          width: 37px;
+        }
+      }
+    }
+    li.not-a-link.menu > a {
+      padding: 7px 7px 7px 28px;
+    }
+    li.not-a-link.menu > a > i {
+      padding-right: 13px;
+    }
+    .uthsc-split-button.inverse {
+      background-color: $gainsboro;
+      color: $uthsc-green;
+      border-bottom: 1px solid $base;
+      font-weight: bold;
+      text-align: left;
+      padding: 0 0 0 15px;
+      font-size: 1em;
+    }
+
+    .uthsc-split-button-home {
+      border-right: 1px solid #aaaaaa;
+      display: inline-block;
+      height: 44px;
+      margin: 0;
+      width: 16%;
+      z-index: 1001;
+
+      &.inverse {
+        background-color: $gainsboro;
+        color: $uthsc-green;
+        border-bottom: 1px solid $base;
+        font-weight: bold;
+      }
+    }
+
+    .uthsc-split-button-breadcrumb-links {
+      z-index: 1002;
+
+      a {
+        color: #222;
+        font-size: 0.75em;
+      }
+
+      li {
+        text-align: center;
+        border: none;
+
+        &:after {
+          content: "\f106";
+          font-family: fontawesome;
+        }
+
+        &:last-child:after {
+          content: "";
+        }
+      }
+    }
+
+    .uthsc-split-button-mission-links {
+      z-index: 1002;
+      a {
+        color: $smoke;
+        padding-left: 44px;
+      }
+      li {
+        text-align: left;
+        background-color: $jet;
+        color: $smoke;
+        border-bottom: 1px solid #006A4D;
+        i {
+          float: left;
+          padding: 12px 17px;
+        }
+      }
+    }
+
+    ol.uthsc-split-button-mission-links {
+      border-bottom: 3px solid #006A4D;
+      border: 0;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      overflow: hidden;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      font-weight: 300;
+      color: #fff;
+    }
+
+    p {
+      padding: 10px;
+      color: $white;
+      line-height: 1.25;
+      font-size: .75em;
+      background-color: $oil;
+      margin: 0;
+    }
+  }
+
+  &.push-menu-left,
+  &.push-menu-right {
+    width: 300px;
+    max-width: 86%;
+
+    li {
+      display: block;
+      text-align: left;
+      border-bottom: solid 1px $jet;
+
+      &:first-child {
+        border-top: none
+      }
+
+      &:last-child {
+        border-bottom: none
+      }
+    }
+
+    a {
+      display: block;
+      padding: 10px;
+      font-size: 1.15rem;
+    }
+
+    button.close-menu {
+      margin: 0;
+      padding: 10px 30px;
+      background-color: $jet;
+    }
+  }
+
+  &.push-menu-left {
+    left: -300px
+  }
+  &.push-menu-right {
+    right: -300px
+  }
+
+  @media all and (max-width: 330px) {
+    nav.push-menu-left,
+    nav.push-menu-right {
+      top: 0;
+      width: 300px;
+    }
+    &.push-menu-left {
+      left: -300px
+    }
+    &.push-menu-right {
+      right: -300px
+    }
+  }
+  .bottom-nav-bar-off-canvas {
+    width: 100%;
+    height: 44px;
+    clear: left;
+    text-align: center;
+    line-height: 44px;
+    background-size: 89%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: lighten($oil, 5%);
+    opacity: 0.4;
+  }
+}
+
+body {
+  &.pml-open nav.push-menu-left {
+    left: 0
+  }
+  &.pmr-open nav.push-menu-right {
+    right: 0
+  }
+  &.pml-open #wrapper {
+    left: 300px
+  }
+  &.pmr-open #wrapper {
+    left: -300px
+  }
+
+  @media all and (max-width: 330px) {
+    &.pml-open nav.push-menu-left {
+      left: 0
+    }
+    &.pmr-open nav.push-menu-right {
+      right: 0
+    }
+    &.pml-open #wrapper {
+      left: 100%
+    }
+    &.pmr-open #wrapper {
+      left: -100%
+    }
+  }
+}
+

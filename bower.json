@@ -9,7 +9,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.3.5",
+    "uthsc": "uthsc/UTHSC",
     "datatables": "~1.10.7",
     "datatables-plugins": "~1.10.7",
     "devbridge-autocomplete": "devbridge/jquery-autocomplete#~1.2.22",
@@ -17,5 +17,6 @@
     "jquery": "~2.1.4",
     "pickadate": "~3.5.6",
     "selectize": "~0.12.1"
+
   }
 }
